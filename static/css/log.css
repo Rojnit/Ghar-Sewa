@@ -1,0 +1,37 @@
+body {
+    background-color: #f8f9fa; /* Light gray background */
+    font-family: 'Roboto', sans-serif; /* Roboto font for the whole page */
+    color: #333; /* Dark gray text color for better readability */
+    padding: 20px; /* Add some padding around the content */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .content {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    min-height: 100vh; /* Make sure it takes at least the viewport height */
+  }
+  
+  .form-block {
+    background: #fff; /* White background for the form area */
+    padding: 40px; /* Padding around the form */
+    border-radius: 10px; /* Rounded corners for the form */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Slight shadow for depth */
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Primary button color */
+    border-color: #007bff; /* Border color to match */
+  }
+  
+  .btn-primary a {
+    color: #fff; /* White text color for links inside buttons */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Make the link fill the button */
+  }
+  
+  .btn-pill {
+    border-radius: 50rem; /* Pill-shaped buttons */
+  }
+  

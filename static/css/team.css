@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding-top: 70px;
+}
+
+.team{
+    margin-top: 50px;
+}
+
+.team .member{
+    position: relative;
+    padding: 30px;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    background: #fff;
+}
+
+.section-title{
+    text-align: center;
+}
+
+.team .member .teampic{
+    overflow: hidden;
+    width: 150px; /* Adjusted width to your preference */
+    height: 150px; /* Adjusted height to your preference */
+    border-radius: 50%; /* Circular images */
+    display: flex; /* Aligns image center */
+    justify-content: center;
+    align-items: center;
+    margin: auto; /* Center the container */
+}
+
+.teampic img {
+    width: 100%; /* Makes the image fill the container */
+    height: 100%; /* Makes the image fill the container */
+    object-fit: cover; /* Ensures image covers the area, cropping excess */
+    border-radius: 50%; /* Ensures the image itself is also circular */
+}
+
+.team .member .member-info{
+    padding-left: 30px;
+}
+
+.team .member h4{
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.team .member span{
+    display: block;
+    font-size: 15px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 500;
+}
+
+.team .member span::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: black;
+    bottom: 0;
+    left: 0;
+}
+
+.team .member p{
+    margin: 10px 0 0 0;
+    font-size: 14px;
+}
+

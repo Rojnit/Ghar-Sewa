@@ -1,0 +1,74 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the body takes full width */
+  height: 100%; /* Ensure the body takes full height */
+  font-family: 'Arial', sans-serif;
+  background: #f5f5f5; /* Default background, can be removed or changed */
+}
+
+/* Profile Section with Full Background Image */
+#profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  text-align: center;
+  padding: 20px; /* Adjust padding as needed */
+  min-height: 100vh; /* Minimum height is 100% of the viewport height */
+  width: 100%; /* Take full width */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  background-image: url('path/to/your/background-image.jpg'); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  color: #333;
+  position: relative; /* Needed for pseudo-element positioning */
+}
+
+/* Adding Transparency Overlay */
+#profile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5); /* White background with 50% opacity for transparency */
+  z-index: 0; /* Ensure it's behind content */
+}
+
+/* Ensuring Content is Visible Above the Overlay */
+.section__text, .section__pic-container, .btn-container, #socials-container {
+  position: relative;
+  z-index: 1; /* Above the pseudo-element */
+}
+
+/* Adjustments for image and text styling */
+.section__pic-container {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  /* Removed img styles since the background is now handled by the section */
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  #profile {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .section__pic-container {
+    margin-right: 30px;
+  }
+
+  .section__text {
+    max-width: 640px;
+  }
+}

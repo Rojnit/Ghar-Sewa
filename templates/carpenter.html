@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghar Sewa</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  {% load static %}
+  <link rel="stylesheet" href="{%static 'C:\Users\Rojnit\Documents\Final_final\project\static\css\team.css'%}">
+  
+</head>
+<body>
+  <header id="home">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 border-bottom fixed-top" >
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2"  href="/customer">Ghar-<span class="text-primary"> Sewa </span> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 fs-5">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/customer#home"><span class="text-primary">Home </span> </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/customer#about">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="/customer#services" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Our Services
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/customer#services">Plumbing Services</a></li>
+                <li><a class="dropdown-item" href="/customer#services">Carpentry Services</a></li>
+                <li><a class="dropdown-item" href="/customer#services">Electrician Services</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/customer#contact">Contact Us</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/customer-order">Order History</a>
+            </li>
+          </ul>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              User
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+              <li><a class="dropdown-item" href="/change-password">Change Password</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+</header>
+
+
+<div class = "team">
+    <div class = "container">
+        <div class = "section-title">
+            <h2> <span class="text-primary">Find Carpenters</span> </h2>
+        </div>
+
+        <div class="container mt-3">
+          <!-- Update the form action if necessary to ensure it points to the correct view handling the search -->
+          <form method="get" action="{% url 'find_carpenters' %}"> <!-- Change this URL to match the name in your urls.py -->
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Search by address" name="address_search" value="{{ request.GET.address_search|default:'' }}">
+                  <button class="btn btn-outline-primary" type="submit">Search</button>
+              </div>
+          </form>
+      </div>
+
+        <div class="row">
+          {% for n in userData%}
+            <div class="col-lg-6 mt-4">
+                <div class= "member d-flex align-items-start">
+                    <div class="teampic">
+                        <img src = "/media/{{n.profilepicture}}" class="img-fluid" alt="teampic">
+                    </div>
+                    <div class="member-info">
+                        <h4>{{n.username}} </h4>
+                        <span>Carpenter</span>
+                        <p>{{n.address}}</p>
+
+                        <a href="/userinfo/{{n.id}}" class="btn btn-primary mt-2">Learn More</a>
+                    </div>
+                </div>
+              </div>
+              {% empty %}
+          <div class="col">
+              <p>No Carpenters found for the specified address.</p>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
